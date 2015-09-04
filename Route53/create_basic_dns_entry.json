@@ -1,0 +1,27 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+
+  "Description" : "AWS test",
+
+ "Resources" : { 
+
+   "DamienDNSRecord" : {
+      "Type" : "AWS::Route53::RecordSet",
+      "Properties" : {
+         "HostedZoneName" : "damien.com.",
+         "Comment" : "DNS name for my instance.",
+         "Name" : "awesome.damien.com",
+         "Type" : "A",
+         "TTL" : "900",
+	 "ResourceRecords" : [ "10.0.0.10" ]
+      }
+   }
+ },
+  "Outputs": {
+    "Hostname": {
+      "Description": "New DNS entry",      
+      "Value" : { "Ref" : "DamienDNSRecord" }
+   }
+ }
+}
+
